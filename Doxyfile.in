@@ -604,6 +604,7 @@ EXCLUDE                = os/gnulinux \
                          os/lxrt \
                          os/ecos \
                          os/macosx \
+                         os/vxworks \
                          os/win32
 
 # The EXCLUDE_SYMLINKS tag can be used select whether or not files or 

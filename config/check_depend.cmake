@@ -112,7 +112,7 @@ endif(XERCES_FOUND)
 message("Orocos target is ${OROCOS_TARGET}")
 string(TOUPPER ${OROCOS_TARGET} OROCOS_TARGET_CAP)
 
-if ( NOT ";lxrt;gnulinux;xenomai;macosx;win32;" MATCHES ".*;${OROCOS_TARGET};.*")
+if ( NOT ";lxrt;gnulinux;xenomai;macosx;vxworks;win32;" MATCHES ".*;${OROCOS_TARGET};.*")
   message( FATAL_ERROR "OROCOS_TARGET=${OROCOS_TARGET} is an unkown target. Please use one of lxrt;gnulinux;xenomai;macosx;win32.")
 endif()
 
@@ -218,6 +218,28 @@ else()
   set(OROPKG_OS_MACOSX FALSE CACHE INTERNAL "" FORCE)
 endif()
 
+# Setup flags for VxWorks
+IF(OROCOS_TARGET STREQUAL "vxworks")
+  set(OROPKG_OS_VXWORKS TRUE CACHE INTERNAL "This variable is exported to the rtt-config.h file to expose our target choice to the code." FORCE)
+  set(OS_HAS_TLSF TRUE)
+
+  if (NOT Boost_THREAD_FOUND)
+    message(SEND_ERROR "Boost thread library not found but required on vxworks.")
+  endif ()
+
+  list(APPEND OROCOS-RTT_INCLUDE_DIRS ${Boost_THREAD_INCLUDE_DIRS} ${Boost_SYSTEM_INCLUDE_DIRS} )
+
+  message( "Forcing ORO_OS_USE_BOOST_THREAD to ON")
+  set( ORO_OS_USE_BOOST_THREAD ON CACHE BOOL "Forced enable use of Boost.thread on vxworks." FORCE)
+
+  # Force OFF on mqueue transport on VxWorks
+  message("Forcing ENABLE_MQ to OFF for vxworks")
+  set(ENABLE_MQ OFF CACHE BOOL "This option is forced to OFF by the build system on vxworks platform." FORCE)
+
+  list(APPEND OROCOS-RTT_DEFINITIONS "OROCOS_TARGET=${OROCOS_TARGET}")
+else()
+  set(OROPKG_OS_VXWORKS FALSE CACHE INTERNAL "" FORCE)
+endif()
 
 # Setup flags for ecos
 if(OROCOS_TARGET STREQUAL "ecos")
