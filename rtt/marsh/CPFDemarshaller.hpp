@@ -49,7 +49,7 @@
 namespace RTT
 { namespace marsh {
 
-#ifdef XERCES_CPP_NAMESPACE
+#if defined(XERCES_HAS_CPP_NAMESPACE) && defined(XERCES_CPP_NAMESPACE)
     using XERCES_CPP_NAMESPACE::InputSource;
 #endif
 
@@ -61,7 +61,7 @@ namespace RTT
     class RTT_MARSH_API CPFDemarshaller
         : public DemarshallInterface
     {
-#ifdef XERCES_CPP_NAMESPACE
+#if defined(XERCES_HAS_CPP_NAMESPACE) && defined(XERCES_CPP_NAMESPACE)
         typedef XERCES_CPP_NAMESPACE::InputSource InputSource;
 #endif
         XMLCh* name;

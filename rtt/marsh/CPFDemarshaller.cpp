@@ -66,7 +66,7 @@
 
 namespace RTT
 {
-#ifdef XERCES_CPP_NAMESPACE
+#if defined(XERCES_HAS_CPP_NAMESPACE) && defined(XERCES_CPP_NAMESPACE)
     using namespace XERCES_CPP_NAMESPACE;
 #endif
     using namespace marsh;
