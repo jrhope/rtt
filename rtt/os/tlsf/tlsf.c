@@ -173,7 +173,7 @@
 #define DEFAULT_AREA_SIZE (1024*10)
 
 #if USE_MMAP
-#define TLSF_PAGE_SIZE (getpagesize())
+#define TLSF_PAGE_SIZE (sysconf(_SC_PAGESIZE))
 #endif
 
 #define PRINT_MSG(fmt, args...) printf(fmt, ## args)
