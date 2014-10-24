@@ -88,6 +88,3 @@ endif()
 
 
 
-if (VXWORKS)
-  option(OS_RT_MALLOC_SBRK "" OFF)
-endif (VXWORKS)

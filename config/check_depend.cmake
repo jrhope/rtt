@@ -236,6 +236,10 @@ IF(OROCOS_TARGET STREQUAL "vxworks")
   message("Forcing ENABLE_MQ to OFF for vxworks")
   set(ENABLE_MQ OFF CACHE BOOL "This option is forced to OFF by the build system on vxworks platform." FORCE)
 
+  # Force OS_RT_MALLOC_SBRK OFF
+  message("Forcing OS_RT_MALLOC_SBRK to OFF for vxworks")
+  set(OS_RT_MALLOC_SBRK OFF CACHE BOOL "This option is forced to OFF by the build system on vxworks platform." FORCE)
+
   list(APPEND OROCOS-RTT_DEFINITIONS "OROCOS_TARGET=${OROCOS_TARGET}")
 else()
   set(OROPKG_OS_VXWORKS FALSE CACHE INTERNAL "" FORCE)
