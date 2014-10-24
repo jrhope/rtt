@@ -1,11 +1,6 @@
 /***************************************************************************
-  tag: Peter Soetens  Mon Jan 10 15:59:15 CET 2005  fosi.c
-
-                        fosi.c -  description
-                           -------------------
-    begin                : Mon January 10 2005
-    copyright            : (C) 2005 Peter Soetens
-    email                : peter.soetens@mech.kuleuven.ac.be
+    copyright            : (C) 2014 Jamison Hope
+    email                : jrh at theptrgroup dot com
 
  ***************************************************************************
  *   This library is free software; you can redistribute it and/or         *

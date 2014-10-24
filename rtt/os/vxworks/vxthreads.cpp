@@ -1,11 +1,6 @@
 /***************************************************************************
-  tag: Peter Soetens  Mon Jun 26 13:25:57 CEST 2006  gnuthreads.cxx
-
-                        gnuthreads.cxx -  description
-                           -------------------
-    begin                : Mon June 26 2006
-    copyright            : (C) 2006 Peter Soetens
-    email                : peter.soetens@fmtc.be
+    copyright            : (C) 2014 Jamison Hope
+    email                : jrh at theptrgroup dot com
 
  ***************************************************************************
  *   This library is free software; you can redistribute it and/or         *
